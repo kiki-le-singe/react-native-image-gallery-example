@@ -21,6 +21,7 @@ export default function Layout() {
         name="modal"
         options={{
           presentation: 'modal',
+          headerShown: false,
         }}
       />
     </Stack>
