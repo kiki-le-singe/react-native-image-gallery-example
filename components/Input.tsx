@@ -22,7 +22,7 @@ export default function Input<T extends FieldValues>({
   } = useController({
     name,
     control,
-    defaultValue: '',
+    defaultValue: undefined,
     rules: {
       required: true,
     },
