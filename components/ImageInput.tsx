@@ -34,6 +34,7 @@ export default function ImageInput<T extends FieldValues>({
     });
 
     if (!result.canceled) {
+      // @ts-ignore
       setValue('image', result.assets[0].uri, { shouldValidate: true });
     } else {
       alert('You did not select any image.');
@@ -41,6 +42,7 @@ export default function ImageInput<T extends FieldValues>({
   }
 
   useEffect(() => {
+    // @ts-ignore
     register('image', { required: 'Image is required' });
   }, [register]);
 
