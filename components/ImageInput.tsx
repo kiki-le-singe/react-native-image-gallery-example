@@ -1,24 +1,26 @@
 import React, { useEffect } from 'react';
 import { Button, Image, View } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import { FieldValues, UseFormRegister, UseFormSetValue } from 'react-hook-form';
+import { FieldPath, FieldValues, UseFormRegister, UseFormSetValue } from 'react-hook-form';
 
 import ErrorMessage from './ErrorMessage';
 import useImagePickerPermission from '../hooks/useImagePickerPermission';
 
-interface ErrorMessageProps<T extends FieldValues> {
+interface ImageInputProps<T extends FieldValues> {
   errorMessage: string | undefined;
   setValue: UseFormSetValue<T>;
   register: UseFormRegister<T>;
   image: string;
+  name: FieldPath<T>;
 }
 
 export default function ImageInput<T extends FieldValues>({
   errorMessage = undefined,
   setValue,
+  name,
   image,
   register,
-}: ErrorMessageProps<T>) {
+}: ImageInputProps<T>) {
   const [hasPermission, handlePermissionDenied] = useImagePickerPermission();
 
   async function pickImageAsync() {
@@ -35,15 +37,14 @@ export default function ImageInput<T extends FieldValues>({
 
     if (!result.canceled) {
       // @ts-ignore
-      setValue('image', result.assets[0].uri, { shouldValidate: true });
+      setValue(name, result.assets[0].uri, { shouldValidate: true });
     } else {
       alert('You did not select any image.');
     }
   }
 
   useEffect(() => {
-    // @ts-ignore
-    register('image', { required: 'Image is required' });
+    register(name, { required: 'Image is required' });
   }, [register]);
 
   return (

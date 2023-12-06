@@ -41,6 +41,7 @@ export default function ImageForm() {
         register={register}
         setValue={setValue}
         image={image}
+        name="image"
       />
 
       <Button title="Add Image" onPress={handleSubmit(onSubmit)} />
