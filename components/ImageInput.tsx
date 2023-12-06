@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Button, Image, View } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import { FieldValues, UseFormRegister, UseFormSetValue, Path } from 'react-hook-form';
+import { FieldValues, UseFormRegister, UseFormSetValue } from 'react-hook-form';
 
 import ErrorMessage from './ErrorMessage';
 import useImagePickerPermission from '../hooks/useImagePickerPermission';
