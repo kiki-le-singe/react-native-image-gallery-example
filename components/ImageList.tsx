@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 
-import useImageStore, { IImageProps, IImageStore } from '../stores/image';
+import useImageStore, { IImageProps } from '../stores/image';
 import ImageViewer from './ImageViewer';
 import ItemSeparator from './ItemSeparator';
 
