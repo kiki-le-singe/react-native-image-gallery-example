@@ -12,6 +12,7 @@ interface ImageViewerProps {
 
 export default function ImageList() {
   const { images } = useImageStore();
+  const reversedImages = [...images].reverse();
 
   return (
     <FlashList
@@ -20,7 +21,7 @@ export default function ImageList() {
       ItemSeparatorComponent={ItemSeparator}
       numColumns={2}
       estimatedItemSize={200}
-      data={images}
+      data={reversedImages}
       showsVerticalScrollIndicator={false}
     />
   );
