@@ -17,7 +17,7 @@ export default function ImageList() {
   return (
     <FlashList
       contentContainerStyle={styles.contentContainerStyle}
-      renderItem={({ item, index }: ImageViewerProps) => <ImageViewer index={index} {...item} />}
+      renderItem={({ item }: ImageViewerProps) => <ImageViewer {...item} />}
       ItemSeparatorComponent={ItemSeparator}
       numColumns={2}
       estimatedItemSize={200}

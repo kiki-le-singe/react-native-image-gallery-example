@@ -5,12 +5,9 @@ import { router } from 'expo-router';
 
 import Input from './Input';
 import ImageInput from './ImageInput';
-import useImageStore from '../stores/image';
+import useImageStore, { IImageProps } from '../stores/image';
 
-interface FormValues {
-  title: string;
-  image: string;
-}
+interface FormValues extends IImageProps {}
 
 export default function ImageForm() {
   const {

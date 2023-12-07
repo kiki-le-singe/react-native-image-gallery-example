@@ -10,11 +10,10 @@ export default function Layout() {
         }}
       />
       <Stack.Screen
-        name="card"
+        name="card/[id]"
         options={{
           headerShadowVisible: true,
-          title: 'Image Details',
-          headerShown: true,
+          title: '',
         }}
       />
       <Stack.Screen

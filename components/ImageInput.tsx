@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { Button, Image, View } from 'react-native';
+import { Button, View } from 'react-native';
+import { Image } from 'expo-image';
 import * as ImagePicker from 'expo-image-picker';
 import { FieldPath, FieldValues, UseFormRegister, UseFormSetValue } from 'react-hook-form';
 
@@ -49,7 +50,7 @@ export default function ImageInput<T extends FieldValues>({
 
   return (
     <View className="flex items-center">
-      {image && <Image source={{ uri: image }} className="w-52 h-52" />}
+      {image && <Image source={{ uri: image }} className="w-52 h-52 rounded-md bg-slate-500" />}
       <Button title="Pick an Image" onPress={pickImageAsync} />
 
       {errorMessage && <ErrorMessage message={errorMessage} />}
