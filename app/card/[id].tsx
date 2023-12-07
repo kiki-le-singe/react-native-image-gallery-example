@@ -21,7 +21,7 @@ export default function Card() {
 
   return (
     <View className="flex items-center pt-8">
-      <Image source={{ uri: image }} className="w-full h-4/6 bg-slate-500" />
+      <Image source={{ uri: image }} className="w-full h-60 bg-slate-500" />
     </View>
   );
 }
