@@ -9,7 +9,7 @@ export default function Modal() {
       <ImageForm />
 
       <Link className="absolute top-6 right-6" href="../">
-        Dismiss Modal
+        Close
       </Link>
     </View>
   );

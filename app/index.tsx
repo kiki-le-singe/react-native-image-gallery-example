@@ -1,17 +1,16 @@
 import { Text, View, TouchableOpacity } from 'react-native';
-
 import { Link } from 'expo-router';
+
+import ImageList from '../components/ImageList';
 
 export default function Home() {
   return (
-    <View className="flex-1 gap-10 items-center justify-center bg-white">
-      <Text>Home</Text>
-
-      <Link href="/card">Card Details</Link>
+    <View className="flex-1">
+      <ImageList />
 
       <Link href="/modal" asChild>
-        <TouchableOpacity className="flex bg-blue-500 rounded-full p-5 items-center justify-center">
-          <Text>Modal</Text>
+        <TouchableOpacity className="absolute bottom-7 right-5 w-12 h-12 bg-blue-500 rounded-full items-center justify-center">
+          <Text>+</Text>
         </TouchableOpacity>
       </Link>
     </View>

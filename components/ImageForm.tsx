@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, Button } from 'react-native';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { router } from 'expo-router';
 
 import Input from './Input';
 import ImageInput from './ImageInput';
+import useImageStore from '../stores/image';
 
 interface FormValues {
   title: string;
@@ -24,25 +26,34 @@ export default function ImageForm() {
       image: '',
     },
   });
+  const { addItem } = useImageStore();
+
   const image = getValues('image');
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    debugger;
+    addItem(data);
+
+    // clean up form
     setValue('title', '');
     setValue('image', '');
+
+    // close modal and redirect to home
+    router.back();
   };
 
   return (
-    <View className="bg-violet-400 w-full gap-y-4">
+    <View className="w-full gap-y-4">
       <Input<FormValues> name="title" placeholder="title" control={control} errors={errors} />
 
-      <ImageInput<FormValues>
-        errorMessage={errors.image?.message}
-        register={register}
-        setValue={setValue}
-        image={image}
-        name="image"
-      />
+      <View>
+        <ImageInput<FormValues>
+          errorMessage={errors.image?.message}
+          register={register}
+          setValue={setValue}
+          image={image}
+          name="image"
+        />
+      </View>
 
       <Button title="Add Image" onPress={handleSubmit(onSubmit)} />
     </View>

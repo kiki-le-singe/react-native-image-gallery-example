@@ -6,14 +6,14 @@ export default function Layout() {
       <Stack.Screen
         name="index"
         options={{
-          headerShown: false,
+          title: 'Home',
         }}
       />
       <Stack.Screen
         name="card"
         options={{
           headerShadowVisible: true,
-          title: 'Images',
+          title: 'Image Details',
           headerShown: true,
         }}
       />
