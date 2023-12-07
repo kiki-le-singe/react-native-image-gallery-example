@@ -7,6 +7,12 @@ export interface IImageProps {
   title: string;
 }
 
+export interface IPersistImageStore {
+  images: IImageProps[];
+  addItem: (item: IImageProps) => void;
+  removeItem: (index: number) => void;
+}
+
 const storage = new MMKV();
 
 const zustandStorage: StateStorage = {
@@ -23,7 +29,7 @@ const zustandStorage: StateStorage = {
 };
 
 const useImageStore = create(
-  persist(
+  persist<IPersistImageStore>(
     (set) => ({
       images: [],
       addItem: (item) => set((state) => ({ images: [...state.images, item] })),
