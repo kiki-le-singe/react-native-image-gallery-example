@@ -1,4 +1,8 @@
-yarn
-npx expo prebuild | npx expo prebuild --yarn
-npx expo prebuild --clean | npx expo prebuild --clean --yarn
-npx expo run:ios
+## Installation
+
+```shell
+$ yarn
+$ npx expo prebuild --yarn
+$ npx expo prebuild --clean --yarn (only if needed)
+$ npx expo run:ios
+```
