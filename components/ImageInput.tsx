@@ -50,7 +50,7 @@ export default function ImageInput<T extends FieldValues>({
 
   return (
     <View className="flex items-center">
-      {image && <Image source={{ uri: image }} className="w-52 h-52 rounded-md bg-slate-500" />}
+      {image && <Image source={{ uri: image }} className="w-52 h-52 rounded-md bg-slate-400" />}
       <Button title="Pick an Image" onPress={pickImageAsync} />
 
       {errorMessage && <ErrorMessage message={errorMessage} />}

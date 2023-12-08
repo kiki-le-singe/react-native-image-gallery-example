@@ -1,9 +1,12 @@
 import { useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView } from 'react-native';
 import { Image } from 'expo-image';
 import { useNavigation } from 'expo-router';
 
 import useImageDetails from '../../hooks/useImageDetails';
+
+import { router } from 'expo-router';
+import RemoveImage from '../../components/RemoveImage';
 
 export default function Card() {
   const navigation = useNavigation();
@@ -13,15 +16,22 @@ export default function Card() {
     return null;
   }
 
-  const { title, image } = imageDetails;
+  const { title, image, id } = imageDetails;
+
+  function redirectToHome() {
+    router.back();
+  }
 
   useEffect(() => {
-    navigation.setOptions({ title });
+    navigation.setOptions({
+      title,
+      headerRight: () => <RemoveImage id={id} action={redirectToHome} />,
+    });
   }, [navigation, title]);
 
   return (
-    <View className="flex items-center pt-8">
-      <Image source={{ uri: image }} className="w-full h-60 bg-slate-500" />
-    </View>
+    <ScrollView>
+      <Image source={{ uri: image }} className="w-full h-80 bg-slate-400" />
+    </ScrollView>
   );
 }
